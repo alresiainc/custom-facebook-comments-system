@@ -4,7 +4,7 @@
  * Plugin Name: Custom Facebook Comments System
  * Plugin URI: https://github.com/alresiainc/custom-facebook-comments-system
  * Description: A customizable, lightweight comment system that mimics the Facebook comments interface, complete with threaded replies, customizable display settings, and moderation options. Designed to integrate seamlessly with any WordPress site and enhance user interaction.
- * Version: v1.0.0
+ * Version: v1.0.1
  * Requires at least: 5.0
  * Tested up to: 6.4
  * Requires PHP: 7.2
