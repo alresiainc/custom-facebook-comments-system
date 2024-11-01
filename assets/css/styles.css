@@ -104,22 +104,24 @@ body {
 
 .single-comment img {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
+  margin-top: 10px;
   background-image: url(./../images/facebook_no_profile_pic.png);
   background-size: cover;
   background-position: center;
   border: none;
 }
 .single-comment .single-container {
-  padding-left: 40px;
+  padding-left: 55px;
   padding-right: 20px;
 }
-.single-comment .single-container span {
+.single-comment .single-container span.comment {
   font-size: 12px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
+  display: block;
 }
-.single-comment .single-container span:first-of-type {
+.single-comment .single-container span.name {
   cursor: pointer;
   font-weight: bold;
   color: #365899;
@@ -127,14 +129,14 @@ body {
   margin: 0;
 }
 
-.single-comment .single-container span:first-of-type:hover {
+.single-comment .single-container span.name:hover {
   color: #90949c;
   cursor: auto;
   text-decoration: none;
 }
 .single-comment .buttons {
   margin-top: 0;
-  padding-left: 40px;
+  padding-left: 0px;
 }
 .single-comment .buttons p {
   display: inline-block;
@@ -160,9 +162,9 @@ body {
 }
 
 .input {
-  margin-top: 0;
+  margin: 0;
   background-color: #f6f7f9;
-  padding: 4px 12px 8px 12px;
+  /* padding: 4px 12px 8px 12px; */
 }
 .input img {
   width: 32px;
@@ -175,15 +177,42 @@ body {
 }
 .input textarea {
   background: #fff;
-  border: 1px solid #bdc7d8;
+  border: 0px solid #bdc7d8;
   box-sizing: border-box;
   cursor: text;
-  width: calc(100% - 40px);
-  margin-left: 40px;
-  padding: 7px;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
   font-family: helvetica;
   outline: none;
   resize: none;
   overflow: hidden;
-  height: 32px;
+  height: 35px;
+}
+
+.child-comment {
+  padding-left: 40px;
+  margin-top: 0px;
+}
+
+.child-comment .child-comment {
+  border-left: 1px solid #e1e2e3;
+}
+
+.child-comment img {
+  width: 28px;
+  height: 28px;
+}
+
+.child-comment .single-container {
+  padding-left: 40px;
+  border-left: 1px solid #e1e2e3;
+}
+
+.child-comment .buttons {
+  padding-left: 0px;
+}
+
+.child-comment .buttons p {
+  color: #90949c;
 }

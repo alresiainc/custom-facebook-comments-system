@@ -13,10 +13,18 @@ jQuery(document).ready(function ($) {
         
   
         <div>
+          <label for="show-post" style="font-weight: 500; margin-bottom: 5px;">Show Post:</label>
+          <select id="show-post" name="show_post" style="padding: 3px 15px; width: 100%;">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+
+        <div>
           <label for="show-comments" style="font-weight: 500; margin-bottom: 5px;">Show Comments:</label>
           <select id="show-comments" name="show_comments" style="padding: 3px 15px; width: 100%;">
-            <option value="true">True</option>
-            <option value="false">False</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
           </select>
         </div>
   
@@ -33,13 +41,7 @@ jQuery(document).ready(function ($) {
           </select>
         </div>
   
-        <div>
-          <label for="allow-comments" style="font-weight: 500; margin-bottom: 5px;">Allow Comments:</label>
-          <select id="allow-comments" name="allow_comments" style="padding: 3px 15px; width: 100%;">
-            <option value="true">True</option>
-            <option value="false" selected>False</option>
-          </select>
-        </div>
+
   
         <div style="grid-column: span 2; display: flex; flex-direction: column;">
           <label for="comment-form-title" style="font-weight: 500; margin-bottom: 5px;">Comment Form Title:</label>
@@ -110,5 +112,57 @@ jQuery(document).ready(function ($) {
       document.execCommand("copy");
       alert("Shortcode copied!");
     });
+  });
+
+  var cfcs_post_frame;
+  $("#upload_author_photo_button").on("click", function (e) {
+    e.preventDefault();
+    if (cfcs_post_frame) {
+      cfcs_post_frame.open();
+      return;
+    }
+    cfcs_post_frame = wp.media({
+      title: "Select or Upload Author Photo",
+      button: {
+        text: "Use this photo",
+      },
+      multiple: false,
+    });
+    cfcs_post_frame.on("select", function () {
+      var attachment = cfcs_post_frame
+        .state()
+        .get("selection")
+        .first()
+        .toJSON();
+      $("#cfcs_author_photo").val(attachment.id);
+      $("#author_photo_preview").attr("src", attachment.url).show();
+    });
+    cfcs_post_frame.open();
+  });
+
+  var cfcs_comments_frame;
+  $("#upload_author_comment_photo_button").on("click", function (e) {
+    e.preventDefault();
+    if (cfcs_comments_frame) {
+      cfcs_comments_frame.open();
+      return;
+    }
+    cfcs_comments_frame = wp.media({
+      title: "Select or Upload Author Photo",
+      button: {
+        text: "Use this photo",
+      },
+      multiple: false, // Set to true for multiple selection
+    });
+    cfcs_comments_frame.on("select", function () {
+      var attachment = cfcs_comments_frame
+        .state()
+        .get("selection")
+        .first()
+        .toJSON();
+      $("#cfcs_comment_author_photo").val(attachment.id);
+      $("#author_photo_preview").attr("src", attachment.url).show();
+    });
+    cfcs_comments_frame.open();
   });
 });

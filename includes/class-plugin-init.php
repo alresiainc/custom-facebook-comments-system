@@ -25,21 +25,34 @@ class Plugin_Init
 
     public static function load_admin_assets()
     {
+        // Enqueue jQuery
         wp_enqueue_script('jquery');
+
+        // Enqueue ThickBox styles and scripts
         wp_enqueue_style('thickbox');
         wp_enqueue_script('thickbox');
-        wp_enqueue_style('cfcs-plugin-admin-style', ALRESIA_CFCS_URL . 'assets/css/admin-styles.css', __FILE__);
-        wp_enqueue_script('cfcs-plugin-admin-script', ALRESIA_CFCS_URL . 'assets/js/admin-scripts.js', __FILE__, ['jquery'], null, true);
+        // Enqueue WordPress media scripts
+        wp_enqueue_media();
 
-        // wp_enqueue_script('admin-post-type-modal',  plugins_url('/assets/js/admin-post-type-modal.js'), ['jquery'], null, true);
+
+
+
+        // Enqueue custom admin styles
+        wp_enqueue_style('cfcs-plugin-admin-style', ALRESIA_CFCS_URL . 'assets/css/admin-styles.css');
+
+        // Enqueue custom admin script
+        wp_enqueue_script('cfcs-plugin-admin-script', ALRESIA_CFCS_URL . 'assets/js/admin-scripts.js', ['jquery'], null, true);
     }
 
     public static function load_public_assets()
     {
+        // Enqueue jQuery
         wp_enqueue_script('jquery');
-        wp_enqueue_style('cfcs-plugin-style', ALRESIA_CFCS_URL . 'assets/css/styles.css', __FILE__);
-        wp_enqueue_script('cfcs-plugin-script', ALRESIA_CFCS_URL . 'assets/js/scripts.js', __FILE__, ['jquery'], null, true);
 
-        // wp_enqueue_script('admin-post-type-modal',  plugins_url('/assets/js/admin-post-type-modal.js'), ['jquery'], null, true);
+        // Enqueue public styles
+        wp_enqueue_style('cfcs-plugin-style', ALRESIA_CFCS_URL . 'assets/css/styles.css');
+
+        // Enqueue public script
+        wp_enqueue_script('cfcs-plugin-script', ALRESIA_CFCS_URL . 'assets/js/scripts.js', ['jquery'], null, true);
     }
 }
