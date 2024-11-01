@@ -82,42 +82,42 @@ class Admin_Post_Type
 
         // Output fields with custom layout
 ?>
-<div class="cfcs-meta-field w-100">
-    <label for="cfcs_author_name">Author Name:</label>
-    <input type="text" id="cfcs_author_name" name="cfcs_author_name" class="w-100"
-        value="<?php echo esc_attr($author_name); ?>" />
-</div>
+        <div class="cfcs-meta-field w-100">
+            <label for="cfcs_author_name">Author Name:</label>
+            <input type="text" id="cfcs_author_name" name="cfcs_author_name" class="w-100"
+                value="<?php echo esc_attr($author_name); ?>" />
+        </div>
 
-<div class="cfcs-meta-field">
-    <label for="cfcs_created_date">Created Date:</label>
-    <input type="date" id="cfcs_created_date" name="cfcs_created_date" class="w-100"
-        value="<?php echo esc_attr($created_date); ?>" />
-</div>
+        <div class="cfcs-meta-field">
+            <label for="cfcs_created_date">Created Date:</label>
+            <input type="date" id="cfcs_created_date" name="cfcs_created_date" class="w-100"
+                value="<?php echo esc_attr($created_date); ?>" />
+        </div>
 
-<div class="cfcs-meta-field inline-fields">
-    <div class="cfcs-meta-field w-50">
-        <label for="cfcs_comment_count">Comment Count:</label>
-        <input type="number" id="cfcs_comment_count" name="cfcs_comment_count" class="w-100"
-            value="<?php echo esc_attr($comment_count); ?>" min="0" />
-    </div>
+        <div class="cfcs-meta-field inline-fields">
+            <div class="cfcs-meta-field w-50">
+                <label for="cfcs_comment_count">Comment Count:</label>
+                <input type="number" id="cfcs_comment_count" name="cfcs_comment_count" class="w-100"
+                    value="<?php echo esc_attr($comment_count); ?>" min="0" />
+            </div>
 
-    <div class="cfcs-meta-field w-50">
-        <label for="cfcs_likes_count">Likes Count:</label>
-        <input type="number" id="cfcs_likes_count" name="cfcs_likes_count" class="w-100"
-            value="<?php echo esc_attr($likes_count); ?>" min="0" />
-    </div>
-</div>
+            <div class="cfcs-meta-field w-50">
+                <label for="cfcs_likes_count">Likes Count:</label>
+                <input type="number" id="cfcs_likes_count" name="cfcs_likes_count" class="w-100"
+                    value="<?php echo esc_attr($likes_count); ?>" min="0" />
+            </div>
+        </div>
 
-<div class="cfcs-meta-field w-100 cfcs-author-photo-wrapper">
-    <label for="cfcs_author_photo">Author Photo:</label>
-    <button type="button" class="button" id="upload_author_photo_button">Select Photo</button>
-    <input type="hidden" id="cfcs_author_photo" name="cfcs_author_photo"
-        value="<?php echo esc_attr($author_photo_id); ?>" />
-    <img id="author_photo_preview" src="<?php echo esc_url($author_photo_url); ?>" class="author-photo-preview"
-        <?php echo $author_photo_url ? '' : 'style="display: none;"'; ?>>
-</div>
+        <div class="cfcs-meta-field w-100 cfcs-author-photo-wrapper">
+            <label for="cfcs_author_photo">Author Photo:</label>
+            <button type="button" class="button" id="upload_author_photo_button">Select Photo</button>
+            <input type="hidden" id="cfcs_author_photo" name="cfcs_author_photo"
+                value="<?php echo esc_attr($author_photo_id); ?>" />
+            <img id="author_photo_preview" src="<?php echo esc_url($author_photo_url); ?>" class="author-photo-preview"
+                <?php echo $author_photo_url ? '' : 'style="display: none;"'; ?>>
+        </div>
 
-<?php
+        <?php
     }
     public static function cfcs_render_comment_meta_fields($comment)
     {
@@ -130,28 +130,28 @@ class Admin_Post_Type
         // Check if the post exists and if its post type is 'custom_post_type'
         if ($post && $post->post_type === 'cfcs_facebook_post') {
         ?>
-<table class="form-table editcomment">
-    <tbody>
-        <tr>
-            <th><label for="cfcs_comment_likes">Likes</label></th>
-            <td>
-                <input type="number" name="cfcs_comment_likes" id="cfcs_comment_likes"
-                    value="<?php echo esc_attr(get_comment_meta($comment->comment_ID, 'cfcs_comment_likes', true)); ?>"
-                    class="widefat">
-            </td>
-        </tr>
-        <tr>
-            <th><label for="cfcs_comment_author_photo">Author Photo</label></th>
-            <td>
-                <button type="button" class="button" id="upload_author_comment_photo_button">Select Photo</button>
-                <input type="hidden" id="cfcs_comment_author_photo" name="cfcs_author_photo"
-                    value="<?php echo esc_attr($author_photo_id); ?>">
-                <img id="author_photo_preview" src="<?php echo esc_url($author_photo_url); ?>"
-                    class="author-photo-preview" <?php echo $author_photo_url ? '' : 'style="display: none;"'; ?>>
-            </td>
-        </tr>
-    </tbody>
-</table>
+            <table class="form-table editcomment">
+                <tbody>
+                    <tr>
+                        <th><label for="cfcs_comment_likes">Likes</label></th>
+                        <td>
+                            <input type="number" name="cfcs_comment_likes" id="cfcs_comment_likes"
+                                value="<?php echo esc_attr(get_comment_meta($comment->comment_ID, 'cfcs_comment_likes', true)); ?>"
+                                class="widefat">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="cfcs_comment_author_photo">Author Photo</label></th>
+                        <td>
+                            <button type="button" class="button" id="upload_author_comment_photo_button">Select Photo</button>
+                            <input type="hidden" id="cfcs_comment_author_photo" name="cfcs_author_photo"
+                                value="<?php echo esc_attr($author_photo_id); ?>">
+                            <img id="author_photo_preview" src="<?php echo esc_url($author_photo_url); ?>"
+                                class="author-photo-preview" <?php echo $author_photo_url ? '' : 'style="display: none;"'; ?>>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
 
 <?php
@@ -222,8 +222,12 @@ class Admin_Post_Type
             unset($actions['inline hide-if-no-js']);
 
             // Add custom 'Add Comment' action
-            $add_comment_url = admin_url("admin.php?page=cfcs_facebook_post_comments&post_id=" . $post->ID);
-            $actions['add_comment'] = '<a href="' . esc_url($add_comment_url) . '">Add Comment</a>';
+            // $add_comment_url = admin_url("admin.php?page=cfcs_facebook_post_comments&post_id=" . $post->ID);
+            // $actions['add_comment'] = '<a href="' . esc_url($add_comment_url) . '">Add Comment</a>';
+
+            // Link to WordPress post editing screen with Discussion metabox
+            $comments_url = admin_url("edit-comments.php?p={$post->ID}");
+            $actions['add_comment'] = '<a href="' . esc_url($comments_url) . '">Manage Comments</a>';
 
             // Add custom 'Copy Shortcode' action
             $shortcode_attr = json_encode([

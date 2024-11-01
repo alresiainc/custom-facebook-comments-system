@@ -21,6 +21,7 @@ class Plugin_Init
     {
         add_action('admin_enqueue_scripts', [__CLASS__, 'load_admin_assets']);
         add_action('wp_enqueue_scripts', [__CLASS__, 'load_public_assets']);
+        add_action('init', [__CLASS__, 'enable_comments_for_custom_post_type']); // Enable comments for custom post type
     }
 
     public static function load_admin_assets()
@@ -54,5 +55,10 @@ class Plugin_Init
 
         // Enqueue public script
         wp_enqueue_script('cfcs-plugin-script', ALRESIA_CFCS_URL . 'assets/js/scripts.js', ['jquery'], null, true);
+    }
+
+    public static function enable_comments_for_custom_post_type()
+    {
+        add_post_type_support('cfcs_facebook_post', 'comments');
     }
 }
