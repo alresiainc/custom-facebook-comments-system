@@ -17,9 +17,10 @@ class Admin_Menu
             'Manage Comments',
             'Comments',
             'manage_options',
-            'edit-comments.php?post_type=cfcs_facebook_post', // This is the slug for the default comments page
-            ''
+            'cfcs-facebook-comments', // Unique slug
+            [__CLASS__, 'cfcs_facebook_comments_redirect']
         );
+
 
 
         add_submenu_page(
@@ -41,6 +42,12 @@ class Admin_Menu
     public static function display_settings()
     {
         echo '<h1>Plugin Settings</h1>';
+    }
+    public function cfcs_facebook_comments_redirect()
+    {
+        // Redirect to the comments page for the specified post type
+        wp_redirect(admin_url('edit-comments.php?post_type=cfcs_facebook_post'));
+        exit;
     }
 }
 
